@@ -4,7 +4,7 @@ import img from './error.jpg';
 const ErrorMessage = () => {
     return (
         <>
-            <img src={img}></img>
+            <img style={{ width: "500px"}} src={img} ></img>
             <span>Something goes wrong :(</span>
         </>
     )
