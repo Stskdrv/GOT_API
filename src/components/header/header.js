@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';//использование компонента линк позводяет нам отойти от стандартного тега a и от стандартного поведения браузера(перезагрузки стр), тк мы используем реакт роутер дом то там есть более уный компонень линк, он использует хисториAPI. Компонент роут смотрит не на полное совпадение пути, а на любуч часть, если хоть часть совпадает, то он отрендерит этот компонент, для избавления от этого передаем параметр exact
 
 const HeaderBlock = styled.div`
     display: flex;
@@ -30,19 +31,19 @@ const Header = () => {
     return (
         <HeaderBlock>
             <HeaderTitle>
-                <a href="#">
+                <Link to='/'>
                 Game of Thrones DB
-                </a>
+                </Link>
             </HeaderTitle>
             <HeaderLinks>
                 <li>
-                    <a href="#">Characters</a>
+                    <Link to='/characters/'>Characters</Link>
                 </li>
                 <li>
-                    <a href="#">Houses</a>
+                    <Link to='/houses/'>Houses</Link>
                 </li>
                 <li>
-                    <a href="#">Books</a>   
+                    <Link to='/books/'>Books</Link>   
                 </li>
             </HeaderLinks>
         </HeaderBlock>

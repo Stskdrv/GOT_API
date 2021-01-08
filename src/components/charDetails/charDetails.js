@@ -4,10 +4,13 @@ import GotService from '../../servises/gotServise.js';
 import Spinner from '../spinner';
 
 const Field = ({char, field, label}) => {// создаем сам компонент, который потом передается в chardetails он является стрелочной функцией, которая принимет в себя элемент, поле и отображение, а возвращает кусок верстки, которую мы берем из уже существующего метода рендер.
-    <li className="list-group-item d-flex justify-content-between">
-    <span className="term">{label} {/* сам лжйбл приходит к нам из пропса, на компонент выше, из характер пэйдж */} </span>
-    <span>{char[field]}</span> вытаскиваем поле из объекта item который пришел из API
-    </li>
+    
+        return(
+            <li className="list-group-item d-flex justify-content-between">
+            <span className="term">{label} {/* сам лжйбл приходит к нам из пропса, на компонент выше, из характер пэйдж */} </span>
+            <span>{char[field]}</span> {/* вытаскиваем поле из объекта item который пришел из API */}
+            </li>
+        )
 }
 
 export {
@@ -40,7 +43,7 @@ export default class CharDetails extends Component {
             return;
         }
 
-        this.gotServise.getCharacter(charId)// тут мы получаем персонажа по айдишнику и мутим в стэйт его 
+        this.gotServise.getCharacter(charId)// тут мы получаем персонажа по айдишнику и кладем в стэйт его 
             .then((char) => {
                 this.setState({char})
             })

@@ -15,7 +15,8 @@ export default class GotService {// мы пишем отдельный клас�
     }
 
     getAllBooks = async () => {// мы передаем путь, который фетчим в каждом методе
-        return this.getResource(`/books/`);
+        const res = await this.getResource(`/books/`);
+        return res.map(this._transformBook);
     }
     
     getBook = async (id) => {
@@ -77,7 +78,7 @@ export default class GotService {// мы пишем отдельный клас�
         };
     }
     
-    _transformBook(book) {
+    _transformBook = (book) => {
         return {
             id: this._extractId(book),
             name: this.isSet(book.name),
