@@ -31,6 +31,27 @@ export default class HousesPage extends Component {
         }
 
         const itemList = (
+            //свойство default props в ситуациях когда пропс не был передан, или мы не хотим его передавать.
+            //ItemList.defaultProps = {
+            //     onItemSelected: () => {}
+            // }
+            // берем компонент айтемлист и прописываем свойство дефолтпропс. Он принимает в себя объект, и позволяет устанавливать пропсы по умолчанию, если они не были переданы напрямую. 
+            // внутри самого компонента def.props можно устанавливать с помощью такого синтаксиса:
+            // static defaultProps = {
+                // props
+            //}
+            // c помощью свойства propTypes мы можем проверять тип данных передаваемых в свойства.Синтаксис:
+            // housesPage.propTypes = {
+            //     interval: (props,propName, componentName) => {
+            //         const value = props[propName];
+                        // if (typeof value === 'number' && !isNaN(value)){
+                        //     return null
+                        // }
+                        //return new TypeError(`${componentName}: ${propName} must be a number`)
+                        
+            //     }
+            // }
+            //Так же есть библиотека propTypes.Если требуется проверка типа пропсов можо обратиться к ней.(см 102 урок)
             <ItemList 
                 onItemSelected={this.onItemSelected}
                 getData={this.gotService.getAllHouses}
